@@ -1,10 +1,9 @@
-#include "holberton.h"
+#include "main.h"
 
-/**
-* print_alphabet - llamar la funcion desde el main
-*/
-void print_alphabet(void)
+
+void print_alphabet()
 {
+
 	char i;
 
 	for (i = 'a'; i <= 'z'; i++)
@@ -12,4 +11,6 @@ void print_alphabet(void)
 		_putchar(i);
 	}
 	_putchar('\n');
+
 }
+
