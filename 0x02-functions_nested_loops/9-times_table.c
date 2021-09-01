@@ -1,28 +1,28 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * jack_bauer - prints every minute of the day of Jack Bauer
- * starting from 00:00 to 23:59
+ * times_table - Prints the 9 times table, starting with 0.
  */
-void jack_bauer(void)
+void times_table(void)
 {
-	int i, j;
+	int num, mult, prod;
 
-	i = 0;
-
-	while (i < 24)
+	for (num = 0; num <= 9; num++)
 	{
-		j = 0;
-		while (j < 60)
+		_putchar('0');
+		for (mult = 1; mult <= 9; mult++)
 		{
-			_putchar((i / 10) + '0');
-			_putchar((i % 10) + '0');
-			_putchar(':');
-			_putchar((j / 10) + '0');
-			_putchar((j % 10) + '0');
-			_putchar('\n');
-			j++;
+			_putchar(',');
+			_putchar(' ');
+
+			prod = num * mult;
+			if (prod <= 9)
+				_putchar(' ');
+			else
+				_putchar((prod / 10) + '0');
+
+			_putchar((prod % 10) + '0');
 		}
-		i++;
+		_putchar('\n');
 	}
 }
