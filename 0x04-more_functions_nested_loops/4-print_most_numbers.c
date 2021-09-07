@@ -1,17 +1,19 @@
 #include "main.h"
 /**
- * print_most_numbers - print all number from 0 tovbbb 9 expext 2 and 4.
+ * print_most_numbers - function that prints the numbers, from 0 to 9.
  *
- * Return:void
+ * Return: nothing.
  */
+
 void print_most_numbers(void)
 {
-int i;
+	int n;
 
-	for (i = 48; i <= 57; i++)
+	while (n < 10)
 	{
-		if ((i != 50) && (i != 52))
-		  :::	_putchar(i);
+		if (n != 2 && n != 4)
+			_putchar(n + '0');
+		n += 1;
 	}
-_putchar('\n');
+	_putchar('\n');
 }
