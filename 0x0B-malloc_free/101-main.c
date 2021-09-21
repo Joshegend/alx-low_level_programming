@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * print_tab - Prints an array of string
@@ -8,11 +10,11 @@
  */
 void print_tab(char **tab)
 {
-    int i;
+  int i;
 
-    for (i = 0; tab[i] != NULL; ++i)
+  for (i = 0; tab[i] != NULL; ++i)
     {
-        printf("%s\n", tab[i]);
+      printf("%s\n", tab[i]);
     }
 }
 
@@ -23,15 +25,14 @@ void print_tab(char **tab)
  */
 int main(void)
 {
-    char **tab;
-    printf("test\n");
-    tab = strtow("Holberton School         #cisfun");
+  char **tab;
 
-    if (tab == NULL)
+  tab = strtow("      Holberton School         #cisfun      ");
+  if (tab == NULL)
     {
-        printf("Failed\n");
-        return (1);
+      printf("Failed\n");
+      return (1);
     }
-    print_tab(tab);
-    return (0);
+  print_tab(tab);
+  return (0);
 }
