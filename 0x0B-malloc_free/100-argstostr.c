@@ -1,55 +1,52 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 
 /**
- * argstostr - concatenates all the arguments
- * @ac: input params
- * @av: input params
- *
- * Return: nothing.
+ * _strlen - find length of a string
+ * @s: string
+ * Return: int
+ */
+
+
+int _strlen(char *s)
+{
+int size = 0;
+for (; s[size] != '\0'; size++)
+;
+return (size);
+}
+
+/**
+ * *argstostr - description
+ * @ac: int
+ * @av: arguments
+ * Return: string
  */
 
 char *argstostr(int ac, char **av)
 {
-	int x, j, v = 0;
-	int len = 1;
-	char *str;
+int i = 0, nc = 0, j = 0, cmpt = 0;
+char *s;
 
-	if (ac == 0 || av == NULL)
-	{
-		return (NULL);
-	}
+if (ac == 0 || av == NULL)
+	return (NULL);
 
-	for (x = 0; x < ac; x++)
-	{
-		for (j = 0; av[x][j] != '\0'; j++)
-		{
-			len += 1;
-		}
-		len += 1;
-	}
-	str = malloc(sizeof(char) * len);
+for (; i < ac; i++, nc++)
+	nc += _strlen(av[i]);
 
-	for (x = 0; x < ac; x++)
-	{
-		for (j = 0; av[x][j] != '\0'; j++)
-		{
-			str[v] = av[x][j];
-			v++;
-		}
-		str[v] = '\n';
-		v++;
-	}
-	str[v] = '\0';
+s = malloc(sizeof(char) * nc + 1);
+if (s == 0)
+	return (NULL);
 
-	if (str != NULL)
-	{
-		return (str);
-	}
-	else
-	{
-		return (NULL);
-	}
+for (i = 0; i < ac; i++)
+{
+	for (j = 0; av[i][j] != '\0'; j++, cmpt++)
+		s[cmpt] = av[i][j];
+
+	s[cmpt] = '\n';
+	cmpt++;
+}
+s[cmpt] = '\0';
+
+return (s);
 }
