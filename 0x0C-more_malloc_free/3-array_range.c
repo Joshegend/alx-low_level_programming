@@ -1,4 +1,5 @@
-#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * *array_range -  create an array of integers
