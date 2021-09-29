@@ -1,39 +1,32 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <udis86.h>
+#include "function_pointers.h"
+
+
+
+/*
+*Intresting note: functions are a set of instruction and
+*function pointers are pointers to the begning of this instruction
+*so if we could get the first instrucions adress inmemory
+*we can see what it is doing by printing the adresses
+*/
 
 /**
-  * main - ...
-  * @argc: ...
-  * @argv: ...
-  *
-  * Return: ...
-  */
+ * main - print opcodes of its own main function
+ * @argc: number of arguments
+ * @argv: vector of arguments
+ * Return: 0 if no errors
+ */
 int main(int argc, char *argv[])
 {
-	ud_t ud_obj;
-	int val = 0, i = 0;
+	register int i, num;
+	char *ptr = (char *)main;
 
-	if (argc == 2)
-	{
-		val = atoi(argv[1]);
-
-		if (val < 0)
-		{
-			printf("Error\n");
-			exit(2);
-		}
-
-		ud_unit(&ud_obj);
-		ud_set_input_buffer(&ud_obj, argv[1], val);
-		ud_set_mode(&ud_obj, 64);
-		ud_set_syntax(&ud_obj, UD_SYN_INTEL);
-
-		while (ud_disassemble(&ud_obj))
-		{
-			printf("\t%s\n", ud_insn_hex(&ud_obj));
-		}
-	}
-
+	if (argc != 2)
+		printf("Error\n"), exit(1);
+	num = atoi(argv[1]);
+	if (num < 0)
+		printf("Error\n"), exit(2);
+	for (i = 0; i < num - 1; i++)
+		printf("%02hhx ", ptr[i]);
+	printf("%02hhx\n", ptr[i]);
 	return (0);
 }
