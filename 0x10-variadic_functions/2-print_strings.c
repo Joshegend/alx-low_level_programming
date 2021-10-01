@@ -1,8 +1,4 @@
 #include "variadic_functions.h"
-#include <stdarg.h>
-#include <stdlib.h>
-#include <stdio.h>
-
 /**
  * print_strings - prints all strings with a separator
  * @separator: separe strings
